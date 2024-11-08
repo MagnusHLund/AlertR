@@ -1,0 +1,12 @@
+{
+  "name": "alertr",
+  "version": "1.0.0",
+  "main": ".",
+  "scripts": {
+    "android": "cd ./alertr.client/ && npm run android",
+    "ios": "cd ./alertr.client/ && npm run ios"
+  },
+  "author": "Magnus Lund",
+  "license": "ISC",
+  "description": ""
+}
