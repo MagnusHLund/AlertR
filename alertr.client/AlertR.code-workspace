@@ -4,5 +4,8 @@
       "name": "alertr.client",
       "path": "./"
     }
-  ]
+  ],
+  "settings": {
+    "conventionalCommits.scopes": ["Frontend", "Backend", "Fullstack"]
+  }
 }
