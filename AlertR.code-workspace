@@ -2,7 +2,14 @@
   "folders": [
     {
       "name": "alertr.client",
-      "path": "./"
+      "path": "./alertr.client"
+    },
+    {
+      "name": "alertr.api.example",
+      "path": "./alertr.api.example"
+    },    {
+      "name": "alertr.docs",
+      "path": "./alertr.docs"
     }
   ],
   "settings": {
