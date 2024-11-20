@@ -1,5 +1,5 @@
 interface IInput {
-  onPress?: () => void;
+  onPress?: () => void
 }
 
-export default IInput;
+export default IInput

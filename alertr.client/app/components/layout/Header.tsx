@@ -4,16 +4,27 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  Image,
   View,
 } from 'react-native'
 import CustomButton from '../input/Buttons/CustomButton'
 import CustomImage from '../content/CustomImage'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+
+type RootStackParamList = {
+  Home: undefined
+  Settings: undefined
+  Add: undefined
+}
 
 const { height, width } = Dimensions.get('window')
 
 const Header = () => {
-  useEffect(() => {}, [])
+  const route = useRoute()
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+
+  const isHomeScreen = route.name === 'Home'
 
   return (
     <View>
@@ -24,16 +35,26 @@ const Header = () => {
       >
         <CustomButton style={style.button} transparent={true}>
           <CustomImage
-            src={require('./../../assets/icons/add.png')}
-            alt="Add new alert"
+            src={
+              isHomeScreen
+                ? require('./../../assets/icons/add.png')
+                : require('./../../assets/icons/AlertR-transparent.png')
+            }
+            alt="Create new alert"
           />
         </CustomButton>
-        <CustomButton style={style.button} transparent={true}>
-          <CustomImage
-            src={require('./../../assets/icons/settings.png')}
-            alt="Go to settings"
-          />
-        </CustomButton>
+        {isHomeScreen && (
+          <CustomButton
+            style={style.button}
+            transparent={true}
+            onPress={() => navigation.navigate('Settings')}
+          >
+            <CustomImage
+              src={require('./../../assets/icons/settings.png')}
+              alt="Go to settings"
+            />
+          </CustomButton>
+        )}
       </ImageBackground>
       <View style={[style.headerBottom, style.bottomBorder]}>
         <Text style={style.pageTitle}>Home</Text>
