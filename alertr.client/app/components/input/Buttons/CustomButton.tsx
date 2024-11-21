@@ -19,6 +19,7 @@ interface ICustomButtonProps extends IStandardInput {
 const { width } = Dimensions.get('window')
 
 const CustomButton: React.FC<ICustomButtonProps> = ({
+  onPress,
   transparent = false,
   children,
   style = StyleSheet.create({}),
@@ -28,7 +29,10 @@ const CustomButton: React.FC<ICustomButtonProps> = ({
   }
 
   return (
-    <TouchableOpacity style={[styles.button, backgroundStyle, style]}>
+    <TouchableOpacity
+      style={[styles.button, backgroundStyle, style]}
+      onPress={onPress}
+    >
       {children}
     </TouchableOpacity>
   )

@@ -10,6 +10,7 @@ import CustomButton from '../input/Buttons/CustomButton'
 import CustomImage from '../content/CustomImage'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import AddScreen from '../screens/AddScreen'
 
 type RootStackParamList = {
   Home: undefined
@@ -18,6 +19,57 @@ type RootStackParamList = {
 }
 
 const { height, width } = Dimensions.get('window')
+
+const BackButton = (
+  navigation: NativeStackNavigationProp<RootStackParamList>
+) => {
+  return (
+    <CustomButton
+      style={style.button}
+      transparent={true}
+      onPress={() => navigation.navigate('Home')}
+    >
+      <CustomImage
+        src={require('./../../assets/icons/Arrow.png')}
+        alt="Go back to Home page"
+      />
+    </CustomButton>
+  )
+}
+
+const SettingsButton = (
+  navigation: NativeStackNavigationProp<RootStackParamList>
+) => {
+  return (
+    <CustomButton
+      style={style.button}
+      transparent={true}
+      onPress={() => navigation.navigate('Settings')}
+    >
+      <CustomImage
+        src={require('./../../assets/icons/settings.png')}
+        alt="Go to settings"
+      />
+    </CustomButton>
+  )
+}
+
+const AddButton = (
+  navigation: NativeStackNavigationProp<RootStackParamList>
+) => {
+  return (
+    <CustomButton
+      style={style.button}
+      transparent={true}
+      onPress={() => navigation.navigate('Add')}
+    >
+      <CustomImage
+        src={require('./../../assets/icons/add.png')}
+        alt="Create new alert"
+      />
+    </CustomButton>
+  )
+}
 
 const Header = () => {
   const route = useRoute()
@@ -33,31 +85,12 @@ const Header = () => {
         source={require('./../../assets/icons/AlertR-transparent.png')}
         resizeMode="center"
       >
-        <CustomButton style={style.button} transparent={true}>
-          <CustomImage
-            src={
-              isHomeScreen
-                ? require('./../../assets/icons/add.png')
-                : require('./../../assets/icons/AlertR-transparent.png')
-            }
-            alt="Create new alert"
-          />
-        </CustomButton>
-        {isHomeScreen && (
-          <CustomButton
-            style={style.button}
-            transparent={true}
-            onPress={() => navigation.navigate('Settings')}
-          >
-            <CustomImage
-              src={require('./../../assets/icons/settings.png')}
-              alt="Go to settings"
-            />
-          </CustomButton>
-        )}
+        {!isHomeScreen && BackButton(navigation)}
+        {isHomeScreen && AddButton(navigation)}
+        {isHomeScreen && SettingsButton(navigation)}
       </ImageBackground>
       <View style={[style.headerBottom, style.bottomBorder]}>
-        <Text style={style.pageTitle}>Home</Text>
+        <Text style={style.pageTitle}>{route.name}</Text>
       </View>
     </View>
   )
