@@ -3,7 +3,6 @@ import { SafeAreaView, ScrollView, StatusBar, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import Header from './components/layout/Header'
 import HomeScreen from './components/screens/HomeScreen'
 import SettingsScreen from './components/screens/SettingsScreen'
 import AddScreen from './components/screens/AddScreen'

@@ -6,11 +6,10 @@ import {
   Dimensions,
   View,
 } from 'react-native'
-import CustomButton from '../input/Buttons/CustomButton'
-import CustomImage from '../content/CustomImage'
+import CustomButton from '../../input/Buttons/CustomButton'
+import CustomImage from '../../content/CustomImage'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import AddScreen from '../screens/AddScreen'
 
 type RootStackParamList = {
   Home: undefined
@@ -30,7 +29,7 @@ const BackButton = (
       onPress={() => navigation.navigate('Home')}
     >
       <CustomImage
-        src={require('./../../assets/icons/Arrow.png')}
+        src={require('./../../../assets/icons/Arrow.png')}
         alt="Go back to Home page"
       />
     </CustomButton>
@@ -47,7 +46,7 @@ const SettingsButton = (
       onPress={() => navigation.navigate('Settings')}
     >
       <CustomImage
-        src={require('./../../assets/icons/settings.png')}
+        src={require('./../../../assets/icons/settings.png')}
         alt="Go to settings"
       />
     </CustomButton>
@@ -64,7 +63,7 @@ const AddButton = (
       onPress={() => navigation.navigate('Add')}
     >
       <CustomImage
-        src={require('./../../assets/icons/add.png')}
+        src={require('./../../../assets/icons/add.png')}
         alt="Create new alert"
       />
     </CustomButton>
@@ -82,7 +81,7 @@ const Header = () => {
     <View>
       <ImageBackground
         style={[style.headerTop, style.bottomBorder]}
-        source={require('./../../assets/icons/AlertR-transparent.png')}
+        source={require('./../../../assets/icons/AlertR-transparent.png')}
         resizeMode="center"
       >
         {!isHomeScreen && BackButton(navigation)}

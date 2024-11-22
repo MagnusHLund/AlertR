@@ -1,14 +1,13 @@
 import React from 'react'
 import { SafeAreaView, ScrollView } from 'react-native'
-import Header from '../layout/Header'
+import Header from '../layout/common/Header'
 
 function HomeScreen(): React.JSX.Element {
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic">
-      <SafeAreaView>
-        <Header />
-      </SafeAreaView>
-    </ScrollView>
+    <SafeAreaView>
+      <Header />
+      <ScrollView contentInsetAdjustmentBehavior="automatic"></ScrollView>
+    </SafeAreaView>
   )
 }
 

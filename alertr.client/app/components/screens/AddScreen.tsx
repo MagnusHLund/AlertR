@@ -1,14 +1,21 @@
 import React from 'react'
-import { SafeAreaView, ScrollView } from 'react-native'
-import Header from '../layout/Header'
+import { SafeAreaView, ScrollView, Text } from 'react-native'
+import Header from '../layout/common/Header'
+import CustomButton from '../input/Buttons/CustomButton'
 
 function AddScreen(): React.JSX.Element {
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic">
-      <SafeAreaView>
-        <Header />
-      </SafeAreaView>
-    </ScrollView>
+    <SafeAreaView>
+      <Header />
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <Text>Name *</Text>
+        <Text>Hostname *</Text>
+        <Text>password</Text>
+        <CustomButton>
+          <Text>Add alert</Text>
+        </CustomButton>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
