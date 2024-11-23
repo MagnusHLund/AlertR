@@ -14,7 +14,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 type RootStackParamList = {
   Home: undefined
   Settings: undefined
-  Add: undefined
+  AddAlert: undefined
 }
 
 const { height, width } = Dimensions.get('window')
@@ -60,7 +60,7 @@ const AddButton = (
     <CustomButton
       style={style.button}
       transparent={true}
-      onPress={() => navigation.navigate('Add')}
+      onPress={() => navigation.navigate('AddAlert')}
     >
       <CustomImage
         src={require('./../../../assets/icons/add.png')}
@@ -89,7 +89,9 @@ const Header = () => {
         {isHomeScreen && SettingsButton(navigation)}
       </ImageBackground>
       <View style={[style.headerBottom, style.bottomBorder]}>
-        <Text style={style.pageTitle}>{route.name}</Text>
+        <Text style={style.pageTitle}>
+          {route.name === 'AddAlert' ? 'Add new alert' : route.name}
+        </Text>
       </View>
     </View>
   )

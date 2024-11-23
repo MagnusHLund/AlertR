@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, Text } from 'react-native'
 import Header from '../layout/common/Header'
 import CustomButton from '../input/Buttons/CustomButton'
 
-function AddScreen(): React.JSX.Element {
+function AddAlertScreen(): React.JSX.Element {
   return (
     <SafeAreaView>
       <Header />
@@ -19,4 +19,4 @@ function AddScreen(): React.JSX.Element {
   )
 }
 
-export default AddScreen
+export default AddAlertScreen
