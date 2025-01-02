@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   ImageBackground,
   StyleSheet,
@@ -10,6 +10,7 @@ import CustomButton from '../../input/Buttons/CustomButton'
 import CustomImage from '../../content/CustomImage'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { colors } from '../../../App'
 
 type RootStackParamList = {
   Home: undefined
@@ -100,7 +101,7 @@ const Header = () => {
 const style = StyleSheet.create({
   headerTop: {
     justifyContent: 'space-between',
-    backgroundColor: '#eb9834',
+    backgroundColor: colors.secondary,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -118,7 +119,7 @@ const style = StyleSheet.create({
   },
   headerBottom: {
     height: height * 0.05,
-    backgroundColor: '#0390fc',
+    backgroundColor: colors.primary,
     width: '100%',
     display: 'flex',
     justifyContent: 'center',

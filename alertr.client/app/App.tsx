@@ -6,6 +6,11 @@ import HomeScreen from './components/screens/HomeScreen'
 import SettingsScreen from './components/screens/SettingsScreen'
 import AddAlertScreen from './components/screens/AddAlertScreen'
 
+export const colors = {
+  primary: '#0390fc',
+  secondary: '#eb9834',
+}
+
 const Stack = createNativeStackNavigator()
 
 function App(): React.JSX.Element {
