@@ -10,10 +10,16 @@ import Header from '../layout/common/Header'
 import CustomButton from '../input/Buttons/CustomButton'
 import CustomTextInput from '../input/Text input/CustomTextInput'
 import { colors } from '../../App'
+import { useForm } from 'react-hook-form'
 
 const { width, height } = Dimensions.get('window')
 
 function AddAlertScreen(): React.JSX.Element {
+  const { control, handleSubmit } = useForm()
+
+  const onValidSubmit = () => {}
+  const onInvalidSubmit = () => {}
+
   return (
     <SafeAreaView>
       <Header />
@@ -21,7 +27,11 @@ function AddAlertScreen(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.Container}
       >
-        <CustomTextInput title="Name of alert" onChange={() => {}} />
+        <CustomTextInput
+          title="Name of alert"
+          onChange={() => {}}
+          control={control}
+        />
         <CustomTextInput title="Hostname" onChange={() => {}} />
         <CustomTextInput
           title="Password"
@@ -29,7 +39,11 @@ function AddAlertScreen(): React.JSX.Element {
           isSecret={true}
           onChange={() => {}}
         />
-        <CustomButton style={styles.AddButton}>
+        <CustomButton
+          style={styles.AddButton}
+          control={control}
+          onPress={handleSubmit(onValidSubmit, onInvalidSubmit)}
+        >
           <Text style={styles.AddButtonText}>Add alert</Text>
         </CustomButton>
       </ScrollView>

@@ -13,24 +13,28 @@ import {
   ViewStyle,
 } from 'react-native'
 import IStandardInput from '../IStandardInput'
+import { useController } from 'react-hook-form'
 
 interface ICustomTextInputProps extends IStandardInput {
   title?: string
   style?: StyleProp<ViewStyle | TextStyle | ImageStyle>
   isRequired?: boolean
   isSecret?: boolean
-  onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void
 }
 
 const { width, height } = Dimensions.get('window')
 
 const CustomTextInput: React.FC<ICustomTextInputProps> = ({
-  onChange,
   title = '',
   isRequired = true,
   isSecret = false,
+  formProps,
   style = StyleSheet.create({}),
 }) => {
+  const { field, fieldState } = useController(formProps)
+
+  const onChange = () => {}
+
   return (
     <View style={styles.Container}>
       {title !== '' && (
@@ -40,6 +44,7 @@ const CustomTextInput: React.FC<ICustomTextInputProps> = ({
         </View>
       )}
       <TextInput
+        {...field}
         onChange={onChange}
         style={styles.TextInput}
         secureTextEntry={isSecret}

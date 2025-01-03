@@ -22,6 +22,7 @@ const CustomButton: React.FC<ICustomButtonProps> = ({
   onPress,
   transparent = false,
   children,
+  control,
   style = StyleSheet.create({}),
 }) => {
   const backgroundStyle = {
