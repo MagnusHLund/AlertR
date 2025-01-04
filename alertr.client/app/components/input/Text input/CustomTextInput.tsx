@@ -16,6 +16,7 @@ import IStandardInput from '../IStandardInput'
 import { useController } from 'react-hook-form'
 
 interface ICustomTextInputProps extends IStandardInput {
+  onChange: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void
   title?: string
   style?: StyleProp<ViewStyle | TextStyle | ImageStyle>
   isRequired?: boolean
@@ -30,11 +31,9 @@ const CustomTextInput: React.FC<ICustomTextInputProps> = ({
   isSecret = false,
   formProps,
   style = StyleSheet.create({}),
+  onChange,
 }) => {
   const { field, fieldState } = useController(formProps)
-
-  const onChange = () => {}
-
   return (
     <View style={styles.Container}>
       {title !== '' && (
@@ -45,6 +44,7 @@ const CustomTextInput: React.FC<ICustomTextInputProps> = ({
       )}
       <TextInput
         {...field}
+        value={String(field.value || '')}
         onChange={onChange}
         style={styles.TextInput}
         secureTextEntry={isSecret}

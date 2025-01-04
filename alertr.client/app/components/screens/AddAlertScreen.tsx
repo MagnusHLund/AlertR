@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import Header from '../layout/common/Header'
 import CustomButton from '../input/Buttons/CustomButton'
-import CustomTextInput from '../input/Text input/CustomTextInput'
+import CustomTextInput from '../input/TextInput/CustomTextInput'
 import { colors } from '../../App'
 import { useForm } from 'react-hook-form'
 
@@ -29,19 +29,18 @@ function AddAlertScreen(): React.JSX.Element {
       >
         <CustomTextInput
           title="Name of alert"
+          formProps={{ control }}
           onChange={() => {}}
-          control={control}
         />
-        <CustomTextInput title="Hostname" onChange={() => {}} />
+        <CustomTextInput title="Hostname" formProps={{ control }} />
         <CustomTextInput
           title="Password"
           isRequired={false}
           isSecret={true}
-          onChange={() => {}}
+          formProps={{ control }}
         />
         <CustomButton
           style={styles.AddButton}
-          control={control}
           onPress={handleSubmit(onValidSubmit, onInvalidSubmit)}
         >
           <Text style={styles.AddButtonText}>Add alert</Text>
