@@ -30,7 +30,6 @@ const CustomTextInput: React.FC<ICustomTextInputProps> = ({
   isRequired = true,
   isSecret = false,
   formProps,
-  style = StyleSheet.create({}),
   onChange,
 }) => {
   const { field, fieldState } = useController(formProps)

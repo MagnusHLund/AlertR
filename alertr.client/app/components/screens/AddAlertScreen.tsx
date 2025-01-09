@@ -1,14 +1,7 @@
 import React from 'react'
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  StyleSheet,
-  Dimensions,
-} from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Dimensions } from 'react-native'
 import Header from '../layout/common/Header'
-import CustomButton from '../input/Buttons/CustomButton'
-import CustomTextInput from '../input/TextInput/CustomTextInput'
+import CustomTextInput from '../input/Text input/CustomTextInput'
 import { colors } from '../../App'
 import { useForm } from 'react-hook-form'
 import Form from '../layout/common/Form'
